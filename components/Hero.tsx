@@ -18,7 +18,7 @@ const slides = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?q=80&w=1600&auto=format&fit=crop",
     eyebrow: "For Him",
     heading: "Bold, without trying.",
     sub: "Woody, amber, and aromatic compositions built for daily wear.",
@@ -27,7 +27,7 @@ const slides = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1619994403073-2cec844b8e63?q=80&w=1600&auto=format&fit=crop",
     eyebrow: "For Her",
     heading: "Quietly unforgettable.",
     sub: "Floral and amber blends designed to be remembered, not just worn.",

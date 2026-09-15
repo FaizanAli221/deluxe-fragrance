@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
@@ -22,9 +23,9 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Fragrance Deluxe — Luxury Perfumes",
+  title: "Fragrance Deluxe — Luxury Extrait de Parfum",
   description:
-    "Fragrance Deluxe brings you the finest branded perfumes, crafted to inspire elegance and individuality.",
+    "Fragrance Deluxe brings you the finest UAE-crafted branded perfumes, created to inspire elegance and lasting projection.",
 };
 
 export default function RootLayout({
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="font-body">
+        <AnnouncementBar />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
