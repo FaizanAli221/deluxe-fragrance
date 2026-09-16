@@ -8,8 +8,7 @@ const collectionsList = [
     subtitle: "Bold, Woody & Spiced",
     desc: "Commanding compositions built on cedarwood, saffron, pepper, and refined amberwood designed for day-to-night presence.",
     href: "/shop?gender=men",
-    image:
-      "https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/the-man-elixir.jpg",
     tag: "Men's Extrait",
   },
   {
@@ -17,8 +16,7 @@ const collectionsList = [
     subtitle: "Radiant, Floral & Sweet",
     desc: "Intoxicating white florals, French peonies, delicate orchids, and velvety Madagascar vanilla with unforgettable trails.",
     href: "/shop?gender=women",
-    image:
-      "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/blossom-paris.jpg",
     tag: "Women's Extrait",
   },
   {
@@ -26,8 +24,7 @@ const collectionsList = [
     subtitle: "Modern Balanced Harmonies",
     desc: "Transcendent scents that defy convention — sea salt, amber accords, and fresh bergamot suited for any connoisseur.",
     href: "/shop?gender=unisex",
-    image:
-      "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/phantasy.jpg",
     tag: "Genderless Luxury",
   },
   {
@@ -35,8 +32,7 @@ const collectionsList = [
     subtitle: "Smoky, Intense & Warm",
     desc: "Extrait-strength oud, spiced cinnamon, ambergris, and smoky leather crafted for grand evenings and cold weather.",
     href: "/shop",
-    image:
-      "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/ombre-nomate.jpg",
     tag: "Evening Wear",
   },
   {
@@ -44,8 +40,7 @@ const collectionsList = [
     subtitle: "Glacial, Citrus & Marine",
     desc: "Glacial green apple, Calabrian bergamot, and blue sage designed for hot summer days, desk wear, and clean confidence.",
     href: "/shop",
-    image:
-      "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/havai-ice.jpg",
     tag: "Fresh Everyday",
   },
   {
@@ -53,8 +48,7 @@ const collectionsList = [
     subtitle: "Warm, Sweet & Addictive",
     desc: "Golden amber, roasted tonka bean, and luscious vanilla that linger gracefully on clothing and skin for over 14 hours.",
     href: "/shop",
-    image:
-      "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/3-pm.jpg",
     tag: "Long Lasting",
   },
 ];

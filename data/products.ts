@@ -16,8 +16,7 @@ export const products: Product[] = [
     },
     description:
       "A crisp, glacial composition that opens with sparkling green apple over a mineral, sea-salt heart, settling into a clean woody base. Built for warm days and long wear.",
-    image:
-      "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/havai-ice.jpg",
     rating: 4.7,
     reviewCount: 18,
     inStock: true,
@@ -38,8 +37,7 @@ export const products: Product[] = [
     },
     description:
       "A smouldering woody-floral built around a rare amberwood accord, softened by rose and finished with a warm sandalwood-vanilla base. Reserved for evenings that matter.",
-    image:
-      "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/ombre-nomate.jpg",
     rating: 4.8,
     reviewCount: 24,
     inStock: true,
@@ -60,8 +58,7 @@ export const products: Product[] = [
     },
     description:
       "Golden amber and vanilla wrapped around a spiced citrus opening — an afternoon-into-evening signature that lingers on skin and fabric alike.",
-    image:
-      "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/3-pm.jpg",
     rating: 4.9,
     reviewCount: 31,
     inStock: true,
@@ -82,8 +79,7 @@ export const products: Product[] = [
     },
     description:
       "A radiant amber-floral extrait, opening on juicy grapefruit and saffron before unfolding into jasmine and a rich ambergris base. Unmistakable and long-lasting.",
-    image:
-      "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/barakkat-rouge.jpg",
     rating: 4.8,
     reviewCount: 27,
     inStock: true,
@@ -104,8 +100,7 @@ export const products: Product[] = [
     },
     description:
       "A commanding amber-woody built on spiced cardamom and dates, deepened with a smoky woody-musk base. Understated strength, worn all evening.",
-    image:
-      "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/the-man-elixir.jpg",
     rating: 4.7,
     reviewCount: 15,
     inStock: true,
@@ -126,8 +121,7 @@ export const products: Product[] = [
     },
     description:
       "An aquatic-aromatic built for daily wear — cool citrus and blue sage over an ambroxan base that reads clean and modern from morning to night.",
-    image:
-      "https://images.unsplash.com/photo-1587017539504-67cfbddac569?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/phantasy.jpg",
     rating: 4.6,
     reviewCount: 12,
     inStock: true,
@@ -148,8 +142,7 @@ export const products: Product[] = [
     },
     description:
       "The women's companion to our signature amber-vanilla line — soft pear and orchid over a warm, musky vanilla base built to last through the night.",
-    image:
-      "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/3-am.jpg",
     rating: 4.8,
     reviewCount: 22,
     inStock: true,
@@ -169,8 +162,7 @@ export const products: Product[] = [
     },
     description:
       "A light, romantic white floral with peony and jasmine over a soft musk-cedar base — an everyday signature with quiet Parisian polish.",
-    image:
-      "https://images.unsplash.com/photo-1563170351-be82bc888aa4?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/blossom-paris.jpg",
     rating: 4.7,
     reviewCount: 19,
     inStock: true,
@@ -190,8 +182,7 @@ export const products: Product[] = [
     },
     description:
       "A bold fruity-floral extrait — tart blackcurrant and litchi over a rose heart, grounded in patchouli and musk for a passionate evening finish.",
-    image:
-      "https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/secret-passion.jpg",
     rating: 4.9,
     reviewCount: 34,
     inStock: true,
@@ -211,8 +202,7 @@ export const products: Product[] = [
     },
     description:
       "A radiant, freshly-spiced signature built on bergamot and ambroxan — bold projection with everyday wearability, from desk to dinner.",
-    image:
-      "https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/suvage.jpg",
     rating: 4.8,
     reviewCount: 41,
     inStock: true,
@@ -232,8 +222,7 @@ export const products: Product[] = [
     },
     description:
       "A smoky, spiced amber-oud built for cold evenings — cinnamon and orange give way to rose and oud over a warm leather-amber base.",
-    image:
-      "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/fire-night.jpg",
     rating: 4.6,
     reviewCount: 9,
     inStock: true,
@@ -253,8 +242,7 @@ export const products: Product[] = [
     },
     description:
       "A tender, petal-soft floral with cherry blossom and freesia resting on a smooth white-musk sandalwood base. Light enough for every day.",
-    image:
-      "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/florance.jpg",
     rating: 4.7,
     reviewCount: 16,
     inStock: true,

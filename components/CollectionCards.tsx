@@ -6,29 +6,25 @@ const collections = [
     title: "Men's Extrait",
     subtitle: "Woody, Amber & Spiced",
     href: "/shop?gender=men",
-    image:
-      "https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/the-man-elixir.jpg",
   },
   {
     title: "Women's Signatures",
     subtitle: "Floral, Vanilla & Sweet",
     href: "/shop?gender=women",
-    image:
-      "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/blossom-paris.jpg",
   },
   {
     title: "Unisex Editions",
     subtitle: "Balanced Modern Compositions",
     href: "/shop?gender=unisex",
-    image:
-      "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/3-pm.jpg",
   },
   {
     title: "Complete Catalog",
     subtitle: "Explore All Formulations",
     href: "/shop",
-    image:
-      "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/products/barakkat-rouge.jpg",
   },
 ];
 
