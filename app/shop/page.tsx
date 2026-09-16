@@ -1,6 +1,10 @@
+"use client";
+
+import { Suspense, useMemo } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
-import { getProducts } from "@/lib/api";
+import { products } from "@/data/products";
 import { Gender } from "@/types/product";
 
 const genderFilters: { label: string; value: Gender | "all" }[] = [
@@ -19,18 +23,23 @@ const tagFilters = [
   "Soft Floral",
 ];
 
-export default async function ShopPage({
-  searchParams,
-}: {
-  searchParams: { gender?: string; tag?: string };
-}) {
-  const activeGender = (searchParams.gender as Gender | undefined) ?? "all";
-  const activeTag = searchParams.tag;
+function ShopInner() {
+  const searchParams = useSearchParams();
+  const activeGender = (searchParams.get("gender") as Gender | null) ?? "all";
+  const activeTag = searchParams.get("tag");
 
-  const { products } = await getProducts({
-    gender: activeGender === "all" ? undefined : activeGender,
-    tag: activeTag,
-  });
+  const filteredProducts = useMemo(() => {
+    let list = products;
+    if (activeGender && activeGender !== "all") {
+      list = list.filter((p) => p.gender === activeGender);
+    }
+    if (activeTag) {
+      list = list.filter((p) =>
+        p.tags.some((t) => t.toLowerCase() === activeTag.toLowerCase())
+      );
+    }
+    return list;
+  }, [activeGender, activeTag]);
 
   return (
     <div className="pt-10 sm:pt-16">
@@ -41,8 +50,8 @@ export default async function ShopPage({
             Luxury Fragrance Edit
           </h1>
           <p className="mt-3 text-sm text-stone">
-            Showing {products.length} artisanal Extrait de Parfum formulation
-            {products.length > 1 ? "s" : ""}
+            Showing {filteredProducts.length} artisanal Extrait de Parfum formulation
+            {filteredProducts.length > 1 ? "s" : ""}
           </p>
         </div>
 
@@ -98,7 +107,7 @@ export default async function ShopPage({
         </div>
       </div>
 
-      {products.length === 0 ? (
+      {filteredProducts.length === 0 ? (
         <div className="container-page my-16 border border-line bg-white/40 py-16 text-center">
           <p className="font-display text-xl italic text-ink">
             No fragrances found matching these filters.
@@ -111,8 +120,22 @@ export default async function ShopPage({
           </Link>
         </div>
       ) : (
-        <ProductGrid products={products} />
+        <ProductGrid products={filteredProducts} />
       )}
     </div>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="container-page py-20 text-center text-sm text-stone">
+          Loading catalog...
+        </div>
+      }
+    >
+      <ShopInner />
+    </Suspense>
   );
 }

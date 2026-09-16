@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { products, reviews, getProductBySlug as findProductBySlug, getReviewsForProduct } from "@/data/products";
 import { Gender, Product, Review, CheckoutLine } from "@/types/product";
 
 export interface ProductsResponse {
@@ -35,65 +35,34 @@ export async function getProducts(params?: {
   featured?: boolean;
   tag?: string;
 }): Promise<ProductsResponse> {
-  const query = new URLSearchParams();
-  if (params?.gender) query.set("gender", params.gender);
-  if (params?.featured) query.set("featured", "true");
-  if (params?.tag) query.set("tag", params.tag);
-  const qs = query.toString();
+  let result = products;
 
-  if (typeof window !== "undefined") {
-    const res = await fetch(`/api/products${qs ? `?${qs}` : ""}`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch products: ${res.statusText}`);
-    }
-    return res.json();
+  if (params?.gender && ["men", "women", "unisex"].includes(params.gender)) {
+    result = result.filter((p) => p.gender === params.gender);
   }
 
-  // Server-side execution: invoke route handler directly to support static builds
-  const { GET } = await import("@/app/api/products/route");
-  const url = new URL(`http://localhost/api/products${qs ? `?${qs}` : ""}`);
-  const response = await GET(new NextRequest(url));
-  return response.json();
+  if (params?.featured) {
+    result = result.filter((p) => p.featured);
+  }
+
+  if (params?.tag) {
+    result = result.filter((p) =>
+      p.tags.some((t) => t.toLowerCase() === params.tag?.toLowerCase())
+    );
+  }
+
+  return { products: result, count: result.length };
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  if (typeof window !== "undefined") {
-    const res = await fetch(`/api/products/${slug}`);
-    if (res.status === 404) return null;
-    if (!res.ok) {
-      throw new Error(`Failed to fetch product: ${res.statusText}`);
-    }
-    const data = await res.json();
-    return data.product ?? null;
-  }
-
-  // Server-side execution
-  const { GET } = await import("@/app/api/products/[slug]/route");
-  const url = new URL(`http://localhost/api/products/${slug}`);
-  const response = await GET(new NextRequest(url), { params: { slug } });
-  if (response.status === 404) return null;
-  const data = await response.json();
-  return data.product ?? null;
+  return findProductBySlug(slug) ?? null;
 }
 
 export async function getReviews(productSlug?: string): Promise<Review[]> {
-  const query = productSlug ? `?product=${encodeURIComponent(productSlug)}` : "";
-
-  if (typeof window !== "undefined") {
-    const res = await fetch(`/api/reviews${query}`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch reviews: ${res.statusText}`);
-    }
-    const data = await res.json();
-    return data.reviews ?? [];
+  if (productSlug) {
+    return getReviewsForProduct(productSlug);
   }
-
-  // Server-side execution
-  const { GET } = await import("@/app/api/reviews/route");
-  const url = new URL(`http://localhost/api/reviews${query}`);
-  const response = await GET(new NextRequest(url));
-  const data = await response.json();
-  return data.reviews ?? [];
+  return reviews;
 }
 
 export async function checkoutOrder(body: {
@@ -105,16 +74,33 @@ export async function checkoutOrder(body: {
     phone: string;
   };
 }): Promise<CheckoutResponse> {
-  const res = await fetch("/api/checkout", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+  let subtotal = 0;
+  const lineItems = body.lines.map((line) => {
+    const product = products.find((p) => p.id === line.productId);
+    const lineTotal = product ? product.priceRs * line.quantity : 0;
+    subtotal += lineTotal;
+    return {
+      productId: line.productId,
+      name: product?.name ?? "Unknown item",
+      quantity: line.quantity,
+      unitPrice: product?.priceRs ?? 0,
+      lineTotal,
+    };
   });
 
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.error ?? "Checkout failed");
-  }
+  const shipping = subtotal >= 5000 ? 0 : 250;
+  const total = subtotal + shipping;
 
-  return data;
+  const order = {
+    orderId: `FD-${Date.now().toString(36).toUpperCase()}`,
+    createdAt: new Date().toISOString(),
+    status: "confirmed" as const,
+    customer: body.customer,
+    lineItems,
+    subtotal,
+    shipping,
+    total,
+  };
+
+  return { order };
 }
