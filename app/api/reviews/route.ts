@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { reviews, getReviewsForProduct, getProductBySlug } from "@/data/products";
 
+export const runtime = "edge";
+
 function enrichReview(r: (typeof reviews)[number]) {
   const product = getProductBySlug(r.productSlug);
   return {

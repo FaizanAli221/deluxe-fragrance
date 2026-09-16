@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { products } from "@/data/products";
 import { CheckoutLine } from "@/types/product";
 
+export const runtime = "edge";
+
 interface CheckoutBody {
   lines: CheckoutLine[];
   customer: {
