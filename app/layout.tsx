@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
@@ -42,6 +43,11 @@ export default function RootLayout({
         <Footer />
         <CartDrawer />
         <WhatsAppButton />
+        <Script
+          src="https://cdn.zanderio.ai/widget/loader.js"
+          data-id="wdg_gBvoGBQs1yD6xXvdGmr53DuB"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
